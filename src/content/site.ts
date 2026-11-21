@@ -13,11 +13,11 @@ export const site = {
 export const timeline = [
   { when: 'Foundation', title: 'Statistics degree', text: 'Probability, inference and modelling: learning why numbers behave the way they do.' },
   { when: 'Going deeper', title: 'MSc Data Science & Analytics, Jain University', text: 'Machine learning, databases and the engineering that makes analysis repeatable.' },
-  { when: 'Now', title: 'Building and job hunting', text: 'Shipping automated pipelines and live dashboards. Open to Data Analyst and Junior Data Scientist roles.' },
+  { when: 'Now', title: 'Building and job hunting', text: 'Shipping forecasting models, automated pipelines and live dashboards. Open to Data Analyst and Junior Data Scientist roles.' },
 ];
 
 export const toolGroups = [
-  { name: 'Analysis', tools: ['Python', 'pandas', 'NumPy', 'SQL', 'Jupyter'] },
+  { name: 'Analysis & ML', tools: ['Python', 'pandas', 'NumPy', 'SQL', 'scikit-learn', 'LightGBM', 'statsmodels'] },
   { name: 'Data', tools: ['PostgreSQL', 'Supabase', 'SQLAlchemy', 'REST APIs', 'yfinance'] },
   { name: 'Visualisation', tools: ['Power BI', 'Streamlit', 'Plotly', 'Excel'] },
   { name: 'Workflow', tools: ['Git & GitHub', 'GitHub Actions', 'VS Code', 'Canva'] },

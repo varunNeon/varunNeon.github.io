@@ -1,5 +1,5 @@
 export type Project = {
-  id: 'gitpulse' | 'indiafin';
+  id: 'demandiq' | 'gitpulse' | 'indiafin';
   index: string;
   title: string;
   kicker: string;
@@ -8,14 +8,36 @@ export type Project = {
   shows: string;
   stack: string[];
   links: { label: string; href: string }[];
-  chart: 'impact' | 'price';
+  chart: 'forecast' | 'impact' | 'price';
   shot: string;
+  /** What the browser frame around the screenshot shows (defaults to the first link's address). */
+  shotLabel?: string;
 };
 
 export const projects: Project[] = [
   {
-    id: 'gitpulse',
+    id: 'demandiq',
     index: '01',
+    title: 'DemandIQ',
+    kicker: 'Forecasting · Machine learning',
+    problem:
+      'A forecast is only useful if you know how wrong it might be. How much stock should a store order when tomorrow’s demand is uncertain?',
+    built: [
+      'Four forecasting models (naive, seasonal naive, Holt-Winters ETS and direct multi-horizon LightGBM) compared in a 12-window rolling-origin backtest, 14 days ahead.',
+      'Calibrated 80% and 95% prediction intervals, with how often reality actually landed inside them measured and reported, not assumed.',
+      'An inventory planner that turns the forecast band into a reorder point, a projected stock path and a six-month simulation of what each service level costs.',
+    ],
+    shows:
+      'LightGBM cuts forecast error by 39% against the naive baseline (WAPE 23.3% vs 38.0%) and is the most accurate model on 97 of 100 store–product series. Benchmarked on two years of synthetic daily sales.',
+    stack: ['Python', 'pandas', 'LightGBM', 'statsmodels', 'scikit-learn', 'FastAPI', 'Next.js', 'Streamlit'],
+    links: [{ label: 'Code', href: 'https://github.com/varunNeon/DemandIQ' }],
+    chart: 'forecast',
+    shot: '/shots/demandiq.jpg',
+    shotLabel: 'demandiq · forecast workspace',
+  },
+  {
+    id: 'gitpulse',
+    index: '02',
     title: 'GitPulse',
     kicker: 'Data engineering · Analytics',
     problem:
@@ -37,7 +59,7 @@ export const projects: Project[] = [
   },
   {
     id: 'indiafin',
-    index: '02',
+    index: '03',
     title: 'IndiaFin',
     kicker: 'Time series · Dashboards',
     problem:
