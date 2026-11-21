@@ -28,7 +28,7 @@ export const projects: Project[] = [
       'A live Streamlit dashboard with leaderboards, star-growth trends, hidden gems and anomaly alerts, refreshed automatically every morning.',
     stack: ['Python', 'pandas', 'PostgreSQL', 'SQLAlchemy', 'GitHub Actions', 'Streamlit', 'Plotly'],
     links: [
-      { label: 'Live dashboard', href: 'https://gitpulse-64rqmapppv4wwlu8qpghuam.streamlit.app/' },
+      { label: 'Live dashboard', href: 'https://gitpulse-varun.streamlit.app/' },
       { label: 'Code', href: 'https://github.com/varunNeon/GitPulse' },
     ],
     chart: 'impact',
@@ -49,7 +49,7 @@ export const projects: Project[] = [
       'An interactive market desk where you pick a stock and a 1-, 3- or 6-month window, then follow trend, volatility and volume through linked charts.',
     stack: ['Python', 'pandas', 'yfinance', 'Streamlit', 'Plotly'],
     links: [
-      { label: 'Live dashboard', href: 'https://indiafin-mf9orp8gbadok3wzmxppj7.streamlit.app/' },
+      { label: 'Live dashboard', href: 'https://indiafin.streamlit.app/' },
       { label: 'Code', href: 'https://github.com/varunNeon/IndiaFin' },
     ],
     chart: 'price',
