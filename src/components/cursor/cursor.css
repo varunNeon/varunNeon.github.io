@@ -1,0 +1,3 @@
+.cursor-grid, .cursor-head { position: fixed; inset: 0; pointer-events: none; }
+.cursor-grid { z-index: 0; }
+.cursor-head { z-index: 100; }
