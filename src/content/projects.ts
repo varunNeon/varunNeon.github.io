@@ -9,6 +9,7 @@ export type Project = {
   stack: string[];
   links: { label: string; href: string }[];
   chart: 'impact' | 'price';
+  shot: string;
 };
 
 export const projects: Project[] = [
@@ -32,6 +33,7 @@ export const projects: Project[] = [
       { label: 'Code', href: 'https://github.com/varunNeon/GitPulse' },
     ],
     chart: 'impact',
+    shot: '/shots/gitpulse.jpg',
   },
   {
     id: 'indiafin',
@@ -53,5 +55,6 @@ export const projects: Project[] = [
       { label: 'Code', href: 'https://github.com/varunNeon/IndiaFin' },
     ],
     chart: 'price',
+    shot: '/shots/indiafin.jpg',
   },
 ];

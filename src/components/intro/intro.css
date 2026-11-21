@@ -1,0 +1,10 @@
+html.intro-lock, html.intro-lock body { overflow: hidden; }
+
+.intro { position: fixed; inset: 0; z-index: 200; --fade: 1; pointer-events: auto; }
+.intro-bg { position: absolute; inset: 0; background: var(--bg); opacity: var(--fade); }
+.intro-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.intro-meta {
+  position: absolute; left: var(--gutter); right: var(--gutter); bottom: 32px;
+  display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted); opacity: var(--fade);
+}

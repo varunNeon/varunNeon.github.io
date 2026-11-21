@@ -11,6 +11,8 @@
   --noise: #a8a59d;
   --grid: #d3cec4;
   --shadow: 0 30px 80px -40px rgba(20, 20, 30, 0.28);
+  --glow-warm: rgba(255, 170, 120, 0.22);
+  --grain-opacity: 0.07;
 
   --serif: 'Instrument Serif', 'Times New Roman', serif;
   --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -34,4 +36,6 @@
   --noise: #55565b;
   --grid: #2a2b30;
   --shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.7);
+  --glow-warm: rgba(160, 120, 255, 0.14);
+  --grain-opacity: 0.09;
 }

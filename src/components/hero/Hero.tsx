@@ -53,26 +53,39 @@ export function Hero() {
   return (
     <section className="hero" id="top" ref={sectionRef} aria-label="Introduction">
       <div className="hero-sticky">
+        <div className="hero-glow" aria-hidden="true"><i /><i /></div>
         <div className="hero-copy">
-          <p className="eyebrow">{site.role}</p>
-          <h1 className="hero-name">{site.name}</h1>
-          <p className="hero-tagline">
-            I find the <em>signal</em>
+          <p className="eyebrow enter" style={{ ['--d' as string]: '0ms' }}>{site.role}</p>
+          <h1 className="hero-name" aria-label={site.name}>
+            {[...site.name].map((ch, i) => (
+              <span key={i} className="ch" aria-hidden="true" style={{ ['--i' as string]: i }}>
+                {ch === ' ' ? ' ' : ch}
+              </span>
+            ))}
+          </h1>
+          <p className="hero-tagline enter" style={{ ['--d' as string]: '520ms' }}>
+            I find the{' '}
+            <span className="sig">
+              <em>signal</em>
+              <svg viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M3 9 C 30 3, 62 12, 90 6 S 114 5, 117 8" pathLength={1} />
+              </svg>
+            </span>
             <br />
             in messy data.
           </p>
-          <p className="hero-intro">{site.intro}</p>
-          <div className="hero-ctas">
+          <p className="hero-intro enter" style={{ ['--d' as string]: '640ms' }}>{site.intro}</p>
+          <div className="hero-ctas enter" style={{ ['--d' as string]: '760ms' }}>
             <a className="btn primary" href="#work" data-cursor="link" data-magnetic>See my work ↓</a>
             <a className="btn" href={site.resume} target="_blank" rel="noopener" data-cursor="link" data-magnetic>Résumé</a>
           </div>
-          <div className="hero-hint mono" aria-hidden="true">
+          <div className="hero-hint mono enter" style={{ ['--d' as string]: '880ms' }} aria-hidden="true">
             <span className="hero-hint-bar"><i ref={barRef} /></span>
             <span>{formed ? 'Now click the chart to add a point' : 'Scroll to find the signal'}</span>
           </div>
         </div>
 
-        <figure className="plot">
+        <figure className="plot plot-enter">
           <figcaption className="plot-head mono">
             <span><b>fig. 1</b> — from noise to signal</span>
             <span key={`n${flash}`} className={flash ? 'flash' : ''}>n = {stats?.n ?? '—'}</span>

@@ -49,10 +49,27 @@
 .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 36px; }
 .contact-copy { min-width: 236px; justify-content: center; }
 
+.footer-wrap { position: relative; z-index: 1; overflow: hidden; border-top: 1px solid var(--line); }
 .footer {
   display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-  padding: 28px var(--gutter) 40px; font-size: 13px; color: var(--muted);
-  border-top: 1px solid var(--line); max-width: 1280px; margin: 0 auto;
+  padding: 28px var(--gutter) 0; font-size: 13px; color: var(--muted);
+  max-width: 1280px; margin: 0 auto;
+}
+.wordmark {
+  font-family: var(--serif); font-size: 21.5vw; line-height: 0.78; letter-spacing: -0.04em;
+  text-align: center; white-space: nowrap; padding-top: 0.12em; margin-bottom: -0.06em;
+  background: linear-gradient(180deg, var(--ink) 30%, color-mix(in srgb, var(--ink) 0%, transparent) 105%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  user-select: none;
+}
+.wordmark span { display: inline-block; transform: translateY(60%); opacity: 0; transition: transform 1s var(--ease), opacity 1s var(--ease); transition-delay: calc(var(--i) * 45ms); }
+.wordmark.in span { transform: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .wordmark span { transform: none; opacity: 1; transition: none; } }
+
+/* film grain over everything (very faint) */
+.grain {
+  position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1.4 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .footer a:hover { color: var(--ink); }
 

@@ -19,6 +19,16 @@ export type PlotHandle = {
 const M = { l: 44, r: 14, t: 12, b: 34 };
 const SNAP_PX = 16;
 
+/** Page coordinates of the hero's starting "noise" points, so the loading intro can land its dots exactly on them. */
+export function noiseScreenPoints(canvas: HTMLCanvasElement): { x: number; y: number }[] {
+  const r = canvas.getBoundingClientRect();
+  const pw = r.width - M.l - M.r, ph = r.height - M.t - M.b;
+  return makeDataset().map((pt) => ({
+    x: r.left + M.l + (pt.nx / XMAX) * pw,
+    y: r.top + M.t + ph - (pt.ny / YMAX) * ph,
+  }));
+}
+
 export function createPlot(canvas: HTMLCanvasElement, opts: PlotOptions): PlotHandle {
   const ctx = canvas.getContext('2d')!;
   const base = makeDataset();

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { site } from '../content/site';
-import { Reveal } from './Reveal';
+import { Reveal, useInView } from './Reveal';
 
 export function Contact() {
   const [copied, setCopied] = useState(false);
@@ -42,10 +42,18 @@ export function Contact() {
 }
 
 export function Footer() {
+  const [ref, inView] = useInView<HTMLDivElement>('0px 0px -5% 0px');
   return (
-    <footer className="footer mono">
-      <span>© {new Date().getFullYear()} {site.name}</span>
-      <a href="#top" data-cursor="link">Back to top ↑</a>
+    <footer className="footer-wrap">
+      <div className="footer mono">
+        <span>© {new Date().getFullYear()} {site.name}</span>
+        <a href="#top" data-cursor="link">Back to top ↑</a>
+      </div>
+      <div ref={ref} className={`wordmark ${inView ? 'in' : ''}`} aria-hidden="true">
+        {[...site.name].map((ch, i) => (
+          <span key={i} style={{ ['--i' as string]: i }}>{ch === ' ' ? ' ' : ch}</span>
+        ))}
+      </div>
     </footer>
   );
 }

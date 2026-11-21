@@ -15,7 +15,17 @@ function CaseStudy({ project, flip }: { project: Project; flip: boolean }) {
     <article ref={ref} className={`case reveal ${inView ? 'in' : ''} ${flip ? 'flip' : ''}`}>
       <a className="case-visual" href={primary.href} target="_blank" rel="noopener" data-cursor="case" aria-label={`${project.title}: ${primary.label}`}>
         <Chart active={inView} />
-        <span className="case-illustrative mono">illustrative data</span>
+        <div className="case-shot" aria-hidden="true">
+          <div className="case-shot-bar mono">
+            <i /><i /><i />
+            <span>{primary.href.replace('https://', '').replace(/\/$/, '')}</span>
+          </div>
+          <img src={project.shot} alt="" loading="lazy" width="800" height="500" />
+        </div>
+        <span className="case-illustrative mono">
+          <span className="lbl-chart">illustrative data · hover for the real thing</span>
+          <span className="lbl-shot">live dashboard ↗</span>
+        </span>
       </a>
       <div className="case-body">
         <p className="eyebrow">{project.index} · {project.kicker}</p>
