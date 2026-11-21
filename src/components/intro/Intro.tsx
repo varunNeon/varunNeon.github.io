@@ -3,7 +3,6 @@ import { noiseScreenPoints } from '../hero/plotRenderer';
 import { cssVar, prefersReducedMotion } from '../../lib/env';
 import './intro.css';
 
-const KEY = 'intro-seen';
 // ?introSpeed=0.25 plays the intro in slow motion (for tuning)
 const SPEED = Number(new URLSearchParams(window.location.search).get('introSpeed')) || 1;
 const T_GATHER = 950, T_HOLD = 1250, T_BURST = 1450, T_LAND = 2150, T_END = 2550;
@@ -20,14 +19,13 @@ function markReady() {
   document.documentElement.classList.remove('intro-lock');
 }
 
+/** Plays on every page load, except for reduced motion or a deep link (e.g. /#work), which go straight to the content. */
 function shouldPlay(): boolean {
-  if (prefersReducedMotion() || window.scrollY > 10) return false;
-  try {
-    return sessionStorage.getItem(KEY) !== '1';
-  } catch {
-    return true;
-  }
+  return !prefersReducedMotion() && !window.location.hash;
 }
+
+// The intro always starts from the top, so don't let the browser restore an old scroll position on refresh.
+if (shouldPlay() && 'scrollRestoration' in history) history.scrollRestoration = 'manual';
 
 /** Sample points inside the letters "VL" drawn in the display serif. */
 function letterPoints(W: number, H: number, count: number) {
@@ -62,7 +60,7 @@ export function Intro() {
   useEffect(() => {
     if (!play || !canvasRef.current) { markReady(); return; }
     document.documentElement.classList.add('intro-lock');
-    try { sessionStorage.setItem(KEY, '1'); } catch { /* ignore */ }
+    window.scrollTo(0, 0);
 
     const canvas = canvasRef.current!, ctx = canvas.getContext('2d')!;
     const dpr = Math.min(2, window.devicePixelRatio || 1);
